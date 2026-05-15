@@ -65,7 +65,7 @@ class CategoriaSerializer(serializers.ModelSerializer):
 class MidiaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Midia
-        fields = ('nome', 'descricao', 'data_criacao', 'categorias', 'tipo', 'created_at', 'updated_at')
+        fields = ('id', 'nome', 'descricao', 'data_criacao', 'categorias', 'tipo', 'created_at', 'updated_at')
         # read_only_fields = ('exemplo')
 
 class TemporadaSerializer(serializers.ModelSerializer):
