@@ -1,5 +1,6 @@
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
+from rest_framework.authtoken.views import obtain_auth_token
 
 from app.views import CategoriaViewSet, EpisodioViewSet, GroupViewSet, MidiaViewSet, PermissionViewSet, TemporadaViewSet, UserViewSet
 
@@ -15,6 +16,7 @@ router.register('episodios', EpisodioViewSet)
 
 urlpatterns = [
     path('api/', include(router.urls)),
+    path("api/login", obtain_auth_token),
 ]
 
 
