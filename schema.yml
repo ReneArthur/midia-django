@@ -1,0 +1,3668 @@
+openapi: 3.0.3
+info:
+  title: SCM Ar
+  version: 1.0.0
+  description: ERP de controle de ar condicionado
+paths:
+  /api/categorias:
+    get:
+      operationId: categorias_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: Um número de página dentro do conjunto de resultados paginado.
+        schema:
+          type: integer
+      tags:
+      - categorias
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedCategoriaList'
+          description: ''
+    post:
+      operationId: categorias_create
+      tags:
+      - categorias
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Categoria'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Categoria'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Categoria'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Categoria'
+          description: ''
+  /api/categorias/{id}:
+    get:
+      operationId: categorias_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este categoria.
+        required: true
+      tags:
+      - categorias
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Categoria'
+          description: ''
+    put:
+      operationId: categorias_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este categoria.
+        required: true
+      tags:
+      - categorias
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Categoria'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Categoria'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Categoria'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Categoria'
+          description: ''
+    patch:
+      operationId: categorias_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este categoria.
+        required: true
+      tags:
+      - categorias
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedCategoria'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedCategoria'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedCategoria'
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Categoria'
+          description: ''
+    delete:
+      operationId: categorias_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este categoria.
+        required: true
+      tags:
+      - categorias
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/cidades:
+    get:
+      operationId: cidades_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: Um número de página dentro do conjunto de resultados paginado.
+        schema:
+          type: integer
+      tags:
+      - cidades
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedCidadeList'
+          description: ''
+    post:
+      operationId: cidades_create
+      tags:
+      - cidades
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cidade'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Cidade'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Cidade'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cidade'
+          description: ''
+  /api/cidades/{id}:
+    get:
+      operationId: cidades_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este cidade.
+        required: true
+      tags:
+      - cidades
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cidade'
+          description: ''
+    put:
+      operationId: cidades_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este cidade.
+        required: true
+      tags:
+      - cidades
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cidade'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Cidade'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Cidade'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cidade'
+          description: ''
+    patch:
+      operationId: cidades_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este cidade.
+        required: true
+      tags:
+      - cidades
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedCidade'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedCidade'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedCidade'
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cidade'
+          description: ''
+    delete:
+      operationId: cidades_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este cidade.
+        required: true
+      tags:
+      - cidades
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/contratos:
+    get:
+      operationId: contratos_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: Um número de página dentro do conjunto de resultados paginado.
+        schema:
+          type: integer
+      tags:
+      - contratos
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedContratoList'
+          description: ''
+    post:
+      operationId: contratos_create
+      tags:
+      - contratos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Contrato'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Contrato'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Contrato'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contrato'
+          description: ''
+  /api/contratos/{id}:
+    get:
+      operationId: contratos_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este contrato.
+        required: true
+      tags:
+      - contratos
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contrato'
+          description: ''
+    put:
+      operationId: contratos_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este contrato.
+        required: true
+      tags:
+      - contratos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Contrato'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Contrato'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Contrato'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contrato'
+          description: ''
+    patch:
+      operationId: contratos_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este contrato.
+        required: true
+      tags:
+      - contratos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedContrato'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedContrato'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedContrato'
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contrato'
+          description: ''
+    delete:
+      operationId: contratos_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este contrato.
+        required: true
+      tags:
+      - contratos
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/estados:
+    get:
+      operationId: estados_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: Um número de página dentro do conjunto de resultados paginado.
+        schema:
+          type: integer
+      tags:
+      - estados
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedEstadoList'
+          description: ''
+    post:
+      operationId: estados_create
+      tags:
+      - estados
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Estado'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Estado'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Estado'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Estado'
+          description: ''
+  /api/estados/{id}:
+    get:
+      operationId: estados_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este estado.
+        required: true
+      tags:
+      - estados
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Estado'
+          description: ''
+    put:
+      operationId: estados_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este estado.
+        required: true
+      tags:
+      - estados
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Estado'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Estado'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Estado'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Estado'
+          description: ''
+    patch:
+      operationId: estados_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este estado.
+        required: true
+      tags:
+      - estados
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedEstado'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedEstado'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedEstado'
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Estado'
+          description: ''
+    delete:
+      operationId: estados_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este estado.
+        required: true
+      tags:
+      - estados
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/groups:
+    get:
+      operationId: groups_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: Um número de página dentro do conjunto de resultados paginado.
+        schema:
+          type: integer
+      tags:
+      - groups
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedGroupList'
+          description: ''
+    post:
+      operationId: groups_create
+      tags:
+      - groups
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Group'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Group'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Group'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Group'
+          description: ''
+  /api/groups/{id}:
+    get:
+      operationId: groups_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este grupo.
+        required: true
+      tags:
+      - groups
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Group'
+          description: ''
+    put:
+      operationId: groups_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este grupo.
+        required: true
+      tags:
+      - groups
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Group'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Group'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Group'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Group'
+          description: ''
+    patch:
+      operationId: groups_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este grupo.
+        required: true
+      tags:
+      - groups
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedGroup'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedGroup'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedGroup'
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Group'
+          description: ''
+    delete:
+      operationId: groups_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este grupo.
+        required: true
+      tags:
+      - groups
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/locais:
+    get:
+      operationId: locais_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: Um número de página dentro do conjunto de resultados paginado.
+        schema:
+          type: integer
+      tags:
+      - locais
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedLocalList'
+          description: ''
+    post:
+      operationId: locais_create
+      tags:
+      - locais
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Local'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Local'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Local'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Local'
+          description: ''
+  /api/locais/{id}:
+    get:
+      operationId: locais_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este local.
+        required: true
+      tags:
+      - locais
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Local'
+          description: ''
+    put:
+      operationId: locais_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este local.
+        required: true
+      tags:
+      - locais
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Local'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Local'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Local'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Local'
+          description: ''
+    patch:
+      operationId: locais_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este local.
+        required: true
+      tags:
+      - locais
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedLocal'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedLocal'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedLocal'
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Local'
+          description: ''
+    delete:
+      operationId: locais_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este local.
+        required: true
+      tags:
+      - locais
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/login:
+    post:
+      operationId: login_create
+      tags:
+      - login
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AuthToken'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/AuthToken'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthToken'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthToken'
+          description: ''
+  /api/ordens-servico:
+    get:
+      operationId: ordens_servico_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: Um número de página dentro do conjunto de resultados paginado.
+        schema:
+          type: integer
+      tags:
+      - ordens-servico
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedOrdemServicoList'
+          description: ''
+    post:
+      operationId: ordens_servico_create
+      tags:
+      - ordens-servico
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrdemServico'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/OrdemServico'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/OrdemServico'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrdemServico'
+          description: ''
+  /api/ordens-servico-itens:
+    get:
+      operationId: ordens_servico_itens_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: Um número de página dentro do conjunto de resultados paginado.
+        schema:
+          type: integer
+      tags:
+      - ordens-servico-itens
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedOrdemServicoItemList'
+          description: ''
+    post:
+      operationId: ordens_servico_itens_create
+      tags:
+      - ordens-servico-itens
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrdemServicoItem'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/OrdemServicoItem'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/OrdemServicoItem'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrdemServicoItem'
+          description: ''
+  /api/ordens-servico-itens/{id}:
+    get:
+      operationId: ordens_servico_itens_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este ordem servico item.
+        required: true
+      tags:
+      - ordens-servico-itens
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrdemServicoItem'
+          description: ''
+    put:
+      operationId: ordens_servico_itens_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este ordem servico item.
+        required: true
+      tags:
+      - ordens-servico-itens
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrdemServicoItem'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/OrdemServicoItem'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/OrdemServicoItem'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrdemServicoItem'
+          description: ''
+    patch:
+      operationId: ordens_servico_itens_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este ordem servico item.
+        required: true
+      tags:
+      - ordens-servico-itens
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedOrdemServicoItem'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedOrdemServicoItem'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedOrdemServicoItem'
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrdemServicoItem'
+          description: ''
+    delete:
+      operationId: ordens_servico_itens_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este ordem servico item.
+        required: true
+      tags:
+      - ordens-servico-itens
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/ordens-servico/{id}:
+    get:
+      operationId: ordens_servico_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este ordem servico.
+        required: true
+      tags:
+      - ordens-servico
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrdemServico'
+          description: ''
+    put:
+      operationId: ordens_servico_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este ordem servico.
+        required: true
+      tags:
+      - ordens-servico
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrdemServico'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/OrdemServico'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/OrdemServico'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrdemServico'
+          description: ''
+    patch:
+      operationId: ordens_servico_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este ordem servico.
+        required: true
+      tags:
+      - ordens-servico
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedOrdemServico'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedOrdemServico'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedOrdemServico'
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrdemServico'
+          description: ''
+    delete:
+      operationId: ordens_servico_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este ordem servico.
+        required: true
+      tags:
+      - ordens-servico
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/patrimonios:
+    get:
+      operationId: patrimonios_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: Um número de página dentro do conjunto de resultados paginado.
+        schema:
+          type: integer
+      tags:
+      - patrimonios
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedPatrimonioList'
+          description: ''
+    post:
+      operationId: patrimonios_create
+      tags:
+      - patrimonios
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Patrimonio'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Patrimonio'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Patrimonio'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Patrimonio'
+          description: ''
+  /api/patrimonios/{id}:
+    get:
+      operationId: patrimonios_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este patrimonio.
+        required: true
+      tags:
+      - patrimonios
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Patrimonio'
+          description: ''
+    put:
+      operationId: patrimonios_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este patrimonio.
+        required: true
+      tags:
+      - patrimonios
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Patrimonio'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Patrimonio'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Patrimonio'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Patrimonio'
+          description: ''
+    patch:
+      operationId: patrimonios_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este patrimonio.
+        required: true
+      tags:
+      - patrimonios
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedPatrimonio'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedPatrimonio'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedPatrimonio'
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Patrimonio'
+          description: ''
+    delete:
+      operationId: patrimonios_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este patrimonio.
+        required: true
+      tags:
+      - patrimonios
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/permissions:
+    get:
+      operationId: permissions_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: Um número de página dentro do conjunto de resultados paginado.
+        schema:
+          type: integer
+      tags:
+      - permissions
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedPermissionList'
+          description: ''
+  /api/permissions/{id}:
+    get:
+      operationId: permissions_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este permissão.
+        required: true
+      tags:
+      - permissions
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Permission'
+          description: ''
+  /api/pessoas:
+    get:
+      operationId: pessoas_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: Um número de página dentro do conjunto de resultados paginado.
+        schema:
+          type: integer
+      tags:
+      - pessoas
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedPessoaList'
+          description: ''
+    post:
+      operationId: pessoas_create
+      tags:
+      - pessoas
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Pessoa'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Pessoa'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Pessoa'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pessoa'
+          description: ''
+  /api/pessoas/{id}:
+    get:
+      operationId: pessoas_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este pessoa.
+        required: true
+      tags:
+      - pessoas
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pessoa'
+          description: ''
+    put:
+      operationId: pessoas_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este pessoa.
+        required: true
+      tags:
+      - pessoas
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Pessoa'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Pessoa'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Pessoa'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pessoa'
+          description: ''
+    patch:
+      operationId: pessoas_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este pessoa.
+        required: true
+      tags:
+      - pessoas
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedPessoa'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedPessoa'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedPessoa'
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pessoa'
+          description: ''
+    delete:
+      operationId: pessoas_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este pessoa.
+        required: true
+      tags:
+      - pessoas
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/produtos:
+    get:
+      operationId: produtos_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: Um número de página dentro do conjunto de resultados paginado.
+        schema:
+          type: integer
+      tags:
+      - produtos
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedProdutoList'
+          description: ''
+    post:
+      operationId: produtos_create
+      tags:
+      - produtos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Produto'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Produto'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Produto'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Produto'
+          description: ''
+  /api/produtos/{id}:
+    get:
+      operationId: produtos_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este produto.
+        required: true
+      tags:
+      - produtos
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Produto'
+          description: ''
+    put:
+      operationId: produtos_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este produto.
+        required: true
+      tags:
+      - produtos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Produto'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Produto'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Produto'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Produto'
+          description: ''
+    patch:
+      operationId: produtos_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este produto.
+        required: true
+      tags:
+      - produtos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedProduto'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedProduto'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedProduto'
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Produto'
+          description: ''
+    delete:
+      operationId: produtos_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este produto.
+        required: true
+      tags:
+      - produtos
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/setores:
+    get:
+      operationId: setores_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: Um número de página dentro do conjunto de resultados paginado.
+        schema:
+          type: integer
+      tags:
+      - setores
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedSetorList'
+          description: ''
+    post:
+      operationId: setores_create
+      tags:
+      - setores
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Setor'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Setor'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Setor'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Setor'
+          description: ''
+  /api/setores/{id}:
+    get:
+      operationId: setores_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este setor.
+        required: true
+      tags:
+      - setores
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Setor'
+          description: ''
+    put:
+      operationId: setores_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este setor.
+        required: true
+      tags:
+      - setores
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Setor'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Setor'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Setor'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Setor'
+          description: ''
+    patch:
+      operationId: setores_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este setor.
+        required: true
+      tags:
+      - setores
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedSetor'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedSetor'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedSetor'
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Setor'
+          description: ''
+    delete:
+      operationId: setores_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este setor.
+        required: true
+      tags:
+      - setores
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/system-units:
+    get:
+      operationId: system_units_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: Um número de página dentro do conjunto de resultados paginado.
+        schema:
+          type: integer
+      tags:
+      - system-units
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedSystemUnitList'
+          description: ''
+    post:
+      operationId: system_units_create
+      tags:
+      - system-units
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SystemUnit'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/SystemUnit'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/SystemUnit'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SystemUnit'
+          description: ''
+  /api/system-units/{id}:
+    get:
+      operationId: system_units_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este system unit.
+        required: true
+      tags:
+      - system-units
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SystemUnit'
+          description: ''
+    put:
+      operationId: system_units_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este system unit.
+        required: true
+      tags:
+      - system-units
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SystemUnit'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/SystemUnit'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/SystemUnit'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SystemUnit'
+          description: ''
+    patch:
+      operationId: system_units_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este system unit.
+        required: true
+      tags:
+      - system-units
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedSystemUnit'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedSystemUnit'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedSystemUnit'
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SystemUnit'
+          description: ''
+    delete:
+      operationId: system_units_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este system unit.
+        required: true
+      tags:
+      - system-units
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/users:
+    get:
+      operationId: users_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: Um número de página dentro do conjunto de resultados paginado.
+        schema:
+          type: integer
+      tags:
+      - users
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedUserList'
+          description: ''
+    post:
+      operationId: users_create
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+  /api/users/{id}:
+    get:
+      operationId: users_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este usuário.
+        required: true
+      tags:
+      - users
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+    put:
+      operationId: users_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este usuário.
+        required: true
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+    patch:
+      operationId: users_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este usuário.
+        required: true
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedUser'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedUser'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedUser'
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+    delete:
+      operationId: users_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: Um valor inteiro único que identifica este usuário.
+        required: true
+      tags:
+      - users
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+components:
+  schemas:
+    AuthToken:
+      type: object
+      properties:
+        username:
+          type: string
+          writeOnly: true
+          title: Nome de usuário
+        password:
+          type: string
+          writeOnly: true
+          title: Senha
+        token:
+          type: string
+          readOnly: true
+      required:
+      - password
+      - token
+      - username
+    Categoria:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        nome:
+          type: string
+          maxLength: 80
+        descricao:
+          type: string
+          nullable: true
+          maxLength: 60
+        system_unit:
+          type: integer
+      required:
+      - created_at
+      - id
+      - nome
+      - system_unit
+      - updated_at
+    Cidade:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        nome:
+          type: string
+          maxLength: 100
+        estado:
+          type: integer
+      required:
+      - created_at
+      - estado
+      - id
+      - nome
+      - updated_at
+    Contrato:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        deleted_at:
+          type: string
+          format: date-time
+          nullable: true
+        status:
+          $ref: '#/components/schemas/ContratoStatusEnum'
+        valor_mensal:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        system_unit:
+          type: integer
+          nullable: true
+        pessoa:
+          type: integer
+      required:
+      - created_at
+      - id
+      - pessoa
+      - updated_at
+    ContratoStatusEnum:
+      enum:
+      - ativo
+      - inativo
+      - suspenso
+      - encerrado
+      type: string
+      description: |-
+        * `ativo` - Ativo
+        * `inativo` - Inativo
+        * `suspenso` - Suspenso
+        * `encerrado` - Encerrado
+    Estado:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        nome:
+          type: string
+          maxLength: 100
+        uf:
+          type: string
+          maxLength: 2
+      required:
+      - created_at
+      - id
+      - nome
+      - uf
+      - updated_at
+    Group:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: Nome
+          maxLength: 150
+        permissions:
+          type: array
+          items:
+            type: integer
+      required:
+      - id
+      - name
+      - permissions
+    Local:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        deleted_at:
+          type: string
+          format: date-time
+          nullable: true
+        nome:
+          type: string
+          maxLength: 100
+        fl_principal:
+          type: boolean
+        system_unit:
+          type: integer
+          nullable: true
+        pessoa:
+          type: integer
+        cidade:
+          type: integer
+          nullable: true
+        estado:
+          type: integer
+      required:
+      - created_at
+      - estado
+      - id
+      - nome
+      - pessoa
+      - updated_at
+    OrdemServico:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        deleted_at:
+          type: string
+          format: date-time
+          nullable: true
+        status:
+          $ref: '#/components/schemas/OrdemServicoStatusEnum'
+        system_unit:
+          type: integer
+          nullable: true
+        pessoa:
+          type: integer
+        contrato:
+          type: integer
+          nullable: true
+        patrimonio:
+          type: integer
+          nullable: true
+        tecnico:
+          type: integer
+      required:
+      - created_at
+      - id
+      - pessoa
+      - tecnico
+      - updated_at
+    OrdemServicoItem:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        deleted_at:
+          type: string
+          format: date-time
+          nullable: true
+        quantidade:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        valor_unitario:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        system_unit:
+          type: integer
+          nullable: true
+        ordem_servico:
+          type: integer
+        produto:
+          type: integer
+      required:
+      - created_at
+      - id
+      - ordem_servico
+      - produto
+      - quantidade
+      - updated_at
+      - valor_unitario
+    OrdemServicoStatusEnum:
+      enum:
+      - aberta
+      - em_andamento
+      - concluida
+      type: string
+      description: |-
+        * `aberta` - Aberta
+        * `em_andamento` - Em andamento
+        * `concluida` - Concluída
+    PaginatedCategoriaList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Categoria'
+    PaginatedCidadeList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Cidade'
+    PaginatedContratoList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Contrato'
+    PaginatedEstadoList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Estado'
+    PaginatedGroupList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Group'
+    PaginatedLocalList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Local'
+    PaginatedOrdemServicoItemList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrdemServicoItem'
+    PaginatedOrdemServicoList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrdemServico'
+    PaginatedPatrimonioList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Patrimonio'
+    PaginatedPermissionList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Permission'
+    PaginatedPessoaList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Pessoa'
+    PaginatedProdutoList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Produto'
+    PaginatedSetorList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Setor'
+    PaginatedSystemUnitList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/SystemUnit'
+    PaginatedUserList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+    PatchedCategoria:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        nome:
+          type: string
+          maxLength: 80
+        descricao:
+          type: string
+          nullable: true
+          maxLength: 60
+        system_unit:
+          type: integer
+    PatchedCidade:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        nome:
+          type: string
+          maxLength: 100
+        estado:
+          type: integer
+    PatchedContrato:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        deleted_at:
+          type: string
+          format: date-time
+          nullable: true
+        status:
+          $ref: '#/components/schemas/ContratoStatusEnum'
+        valor_mensal:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        system_unit:
+          type: integer
+          nullable: true
+        pessoa:
+          type: integer
+    PatchedEstado:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        nome:
+          type: string
+          maxLength: 100
+        uf:
+          type: string
+          maxLength: 2
+    PatchedGroup:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: Nome
+          maxLength: 150
+        permissions:
+          type: array
+          items:
+            type: integer
+    PatchedLocal:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        deleted_at:
+          type: string
+          format: date-time
+          nullable: true
+        nome:
+          type: string
+          maxLength: 100
+        fl_principal:
+          type: boolean
+        system_unit:
+          type: integer
+          nullable: true
+        pessoa:
+          type: integer
+        cidade:
+          type: integer
+          nullable: true
+        estado:
+          type: integer
+    PatchedOrdemServico:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        deleted_at:
+          type: string
+          format: date-time
+          nullable: true
+        status:
+          $ref: '#/components/schemas/OrdemServicoStatusEnum'
+        system_unit:
+          type: integer
+          nullable: true
+        pessoa:
+          type: integer
+        contrato:
+          type: integer
+          nullable: true
+        patrimonio:
+          type: integer
+          nullable: true
+        tecnico:
+          type: integer
+    PatchedOrdemServicoItem:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        deleted_at:
+          type: string
+          format: date-time
+          nullable: true
+        quantidade:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        valor_unitario:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        system_unit:
+          type: integer
+          nullable: true
+        ordem_servico:
+          type: integer
+        produto:
+          type: integer
+    PatchedPatrimonio:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        deleted_at:
+          type: string
+          format: date-time
+          nullable: true
+        numero_serie:
+          type: string
+          maxLength: 50
+        status:
+          $ref: '#/components/schemas/PatrimonioStatusEnum'
+        system_unit:
+          type: integer
+        produto:
+          type: integer
+        pessoa:
+          type: integer
+          nullable: true
+        local:
+          type: integer
+        setor:
+          type: integer
+    PatchedPessoa:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        deleted_at:
+          type: string
+          format: date-time
+          nullable: true
+        tipo_pessoa:
+          $ref: '#/components/schemas/TipoPessoaEnum'
+        nome:
+          type: string
+          maxLength: 128
+        nome_fantasia:
+          type: string
+          nullable: true
+          maxLength: 128
+        fl_cliente:
+          type: boolean
+        fl_fornecedor:
+          type: boolean
+        fl_tecnico:
+          type: boolean
+        fl_colaborador:
+          type: boolean
+        cpf:
+          type: string
+          nullable: true
+          maxLength: 20
+        cnpj:
+          type: string
+          nullable: true
+          maxLength: 20
+        email:
+          type: string
+          nullable: true
+          maxLength: 128
+        telefone_fixo:
+          type: string
+          nullable: true
+          maxLength: 20
+        celular_1:
+          type: string
+          nullable: true
+          maxLength: 20
+        celular_2:
+          type: string
+          nullable: true
+          maxLength: 20
+        system_unit:
+          type: integer
+          nullable: true
+        cidade:
+          type: integer
+          nullable: true
+    PatchedProduto:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        deleted_at:
+          type: string
+          format: date-time
+          nullable: true
+        tipo_item:
+          $ref: '#/components/schemas/TipoItemEnum'
+        nome:
+          type: string
+          maxLength: 128
+        codigo_interno:
+          type: string
+          nullable: true
+          maxLength: 30
+        preco_custo:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        preco_venda:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        estoque_atual:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        system_unit:
+          type: integer
+          nullable: true
+        categoria:
+          type: integer
+          nullable: true
+    PatchedSetor:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        nome:
+          type: string
+          maxLength: 100
+        descricao:
+          type: string
+          nullable: true
+          maxLength: 60
+        system_unit:
+          type: integer
+          nullable: true
+        local:
+          type: integer
+          nullable: true
+    PatchedSystemUnit:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        name:
+          type: string
+          maxLength: 100
+        cpf_cnpj:
+          type: string
+          nullable: true
+          maxLength: 18
+        razao_social:
+          type: string
+          nullable: true
+          maxLength: 100
+        nome_fantasia:
+          type: string
+          nullable: true
+          maxLength: 80
+        email:
+          type: string
+          nullable: true
+          maxLength: 50
+        telefone:
+          type: string
+          nullable: true
+          maxLength: 20
+        logo:
+          type: string
+          nullable: true
+          maxLength: 100
+        endereco:
+          type: string
+          nullable: true
+          maxLength: 150
+        cidade:
+          type: string
+          nullable: true
+          maxLength: 80
+        uf:
+          type: string
+          nullable: true
+          maxLength: 2
+        nat_op_padrao:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+          nullable: true
+        ambiente:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+        cUF:
+          type: string
+          nullable: true
+          maxLength: 2
+        inscricao_estadual:
+          type: string
+          nullable: true
+          maxLength: 20
+        regime_tributario:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+          nullable: true
+        ativo:
+          type: boolean
+    PatchedUser:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        username:
+          type: string
+          title: Usuário
+          description: Obrigatório. 150 caracteres ou menos. Letras, números e @/./+/-/_
+            apenas.
+          pattern: ^[\w.@+-]+$
+          maxLength: 150
+        password:
+          type: string
+          writeOnly: true
+        email:
+          type: string
+          format: email
+          title: Endereço de email
+          maxLength: 254
+        is_staff:
+          type: boolean
+          title: Membro da equipe
+          description: Indica que usuário consegue acessar este site de administração.
+        groups:
+          type: array
+          items:
+            type: integer
+        user_permissions:
+          type: array
+          items:
+            type: integer
+    Patrimonio:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        deleted_at:
+          type: string
+          format: date-time
+          nullable: true
+        numero_serie:
+          type: string
+          maxLength: 50
+        status:
+          $ref: '#/components/schemas/PatrimonioStatusEnum'
+        system_unit:
+          type: integer
+        produto:
+          type: integer
+        pessoa:
+          type: integer
+          nullable: true
+        local:
+          type: integer
+        setor:
+          type: integer
+      required:
+      - created_at
+      - id
+      - local
+      - numero_serie
+      - produto
+      - setor
+      - system_unit
+      - updated_at
+    PatrimonioStatusEnum:
+      enum:
+      - ativo
+      - em_manutencao
+      - em_estoque
+      - vendido
+      type: string
+      description: |-
+        * `ativo` - Ativo
+        * `em_manutencao` - Em manutenção
+        * `em_estoque` - Em estoque
+        * `vendido` - Vendido
+    Permission:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: Nome
+          maxLength: 255
+        codename:
+          type: string
+          title: Apelido
+          maxLength: 100
+        content_type:
+          type: integer
+          title: Tipo de conteúdo
+      required:
+      - codename
+      - content_type
+      - id
+      - name
+    Pessoa:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        deleted_at:
+          type: string
+          format: date-time
+          nullable: true
+        tipo_pessoa:
+          $ref: '#/components/schemas/TipoPessoaEnum'
+        nome:
+          type: string
+          maxLength: 128
+        nome_fantasia:
+          type: string
+          nullable: true
+          maxLength: 128
+        fl_cliente:
+          type: boolean
+        fl_fornecedor:
+          type: boolean
+        fl_tecnico:
+          type: boolean
+        fl_colaborador:
+          type: boolean
+        cpf:
+          type: string
+          nullable: true
+          maxLength: 20
+        cnpj:
+          type: string
+          nullable: true
+          maxLength: 20
+        email:
+          type: string
+          nullable: true
+          maxLength: 128
+        telefone_fixo:
+          type: string
+          nullable: true
+          maxLength: 20
+        celular_1:
+          type: string
+          nullable: true
+          maxLength: 20
+        celular_2:
+          type: string
+          nullable: true
+          maxLength: 20
+        system_unit:
+          type: integer
+          nullable: true
+        cidade:
+          type: integer
+          nullable: true
+      required:
+      - created_at
+      - id
+      - nome
+      - updated_at
+    Produto:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        deleted_at:
+          type: string
+          format: date-time
+          nullable: true
+        tipo_item:
+          $ref: '#/components/schemas/TipoItemEnum'
+        nome:
+          type: string
+          maxLength: 128
+        codigo_interno:
+          type: string
+          nullable: true
+          maxLength: 30
+        preco_custo:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        preco_venda:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        estoque_atual:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        system_unit:
+          type: integer
+          nullable: true
+        categoria:
+          type: integer
+          nullable: true
+      required:
+      - created_at
+      - id
+      - nome
+      - updated_at
+    Setor:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        nome:
+          type: string
+          maxLength: 100
+        descricao:
+          type: string
+          nullable: true
+          maxLength: 60
+        system_unit:
+          type: integer
+          nullable: true
+        local:
+          type: integer
+          nullable: true
+      required:
+      - created_at
+      - id
+      - nome
+      - updated_at
+    SystemUnit:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        name:
+          type: string
+          maxLength: 100
+        cpf_cnpj:
+          type: string
+          nullable: true
+          maxLength: 18
+        razao_social:
+          type: string
+          nullable: true
+          maxLength: 100
+        nome_fantasia:
+          type: string
+          nullable: true
+          maxLength: 80
+        email:
+          type: string
+          nullable: true
+          maxLength: 50
+        telefone:
+          type: string
+          nullable: true
+          maxLength: 20
+        logo:
+          type: string
+          nullable: true
+          maxLength: 100
+        endereco:
+          type: string
+          nullable: true
+          maxLength: 150
+        cidade:
+          type: string
+          nullable: true
+          maxLength: 80
+        uf:
+          type: string
+          nullable: true
+          maxLength: 2
+        nat_op_padrao:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+          nullable: true
+        ambiente:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+        cUF:
+          type: string
+          nullable: true
+          maxLength: 2
+        inscricao_estadual:
+          type: string
+          nullable: true
+          maxLength: 20
+        regime_tributario:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+          nullable: true
+        ativo:
+          type: boolean
+      required:
+      - created_at
+      - id
+      - name
+      - updated_at
+    TipoItemEnum:
+      enum:
+      - produto
+      - servico
+      - equipamento
+      type: string
+      description: |-
+        * `produto` - Produto
+        * `servico` - Serviço
+        * `equipamento` - Equipamento
+    TipoPessoaEnum:
+      enum:
+      - F
+      - J
+      type: string
+      description: |-
+        * `F` - Física
+        * `J` - Jurídica
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        username:
+          type: string
+          title: Usuário
+          description: Obrigatório. 150 caracteres ou menos. Letras, números e @/./+/-/_
+            apenas.
+          pattern: ^[\w.@+-]+$
+          maxLength: 150
+        password:
+          type: string
+          writeOnly: true
+        email:
+          type: string
+          format: email
+          title: Endereço de email
+          maxLength: 254
+        is_staff:
+          type: boolean
+          title: Membro da equipe
+          description: Indica que usuário consegue acessar este site de administração.
+        groups:
+          type: array
+          items:
+            type: integer
+        user_permissions:
+          type: array
+          items:
+            type: integer
+      required:
+      - id
+      - password
+      - username
+  securitySchemes:
+    tokenAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Token-based authentication with required prefix "Token"

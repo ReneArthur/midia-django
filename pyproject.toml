@@ -1,0 +1,11 @@
+[project]
+name = "midia"
+version = "0.1.0"
+dependencies = [
+    "Django==6.0.3",
+    "djangorestframework==3.17.0",
+    "drf-spectacular==0.29.0",
+]
+
+[tool.setuptools]
+packages = ["midia"]
