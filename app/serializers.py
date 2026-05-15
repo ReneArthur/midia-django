@@ -36,24 +36,34 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ["id", "username", "password", "email", "is_staff", "groups", "user_permissions"]
+        fields = ("id", "username", "password", "email", "is_staff", "groups", "user_permissions")
 
-    # A gente precisa sobrescrever a função abaixo para a senha ser criptografada corretamente.
+    # A gente precisa sobrescrever o create e o update para a senha ser criptografada corretamente.
     def create(self, validated_data):
-        return User.objects.create_user(**validated_data)
+        password = validated_data.pop("password")
+
+        user = super().create(validated_data)
+
+        user.set_password(password)
+        user.save()
+
+        return user
+
     
     def update(self, instance, validated_data):
         password = validated_data.pop("password", None)
         instance = super().update(instance, validated_data)
+
         if password:
             instance.set_password(password)
             instance.save()
+
         return instance
 
-    def to_representation(self, instance):
-        representation = super().to_representation(instance)
-        representation['groups'] = GroupSerializer(instance.groups, many=True).data
-        return representation
+    # def to_representation(self, instance):
+    #     representation = super().to_representation(instance)
+    #     representation['groups'] = GroupSerializer(instance.groups, many=True).data
+    #     return representation
 
 # Modelos do sistema
 
